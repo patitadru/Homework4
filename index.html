@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My PWA Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Manifest file -->
+    <link rel="manifest" href="manifest.json">
+    <!-- PWA icons -->
+    <link rel="icon" sizes="192x192" href="images/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="style.css">
+    <!-- Styles -->
+ 
+ 
+  </head>
+  <body>
+  
+  
+  
+    <main>
+          <h1 class="heading">My Progressive Web App</h1>
+      <p>Progressive Web Apps (PWAs) are web applications that provide a native-like experience to users. They combine the best of both worlds - the reach and accessibility of the web, and the functionality and performance of native apps. PWAs are built using standard web technologies such as HTML, CSS, and JavaScript, and are designed to work across all platforms and devices, including desktops, tablets, and smartphones. They can be accessed from a web browser, added to the home screen, and even installed on the device, just like native apps.</p>
+      <p>One of the main characteristics of PWAs is their ability to work offline. PWAs can be designed to cache the necessary resources, allowing the user to access the app even when there is no network connection. They also support push notifications, allowing the app to send notifications to the user even when the app is not open. Additionally, PWAs are highly responsive, adapting to different screen sizes and orientations, and are designed to load quickly, improving the overall user experience. Overall, PWAs offer a seamless user experience, providing the user with fast, reliable, and engaging applications, regardless of the platform or device they are using.</p>
+      <p>
+
+
+        <hr>
+         <h1 style="text-align: center;">Select a Color</h1>
+        <div class="dropdown">
+
+    <select id="color-dropdown" lass="dropdown-content" onchange="changeBackground()" style=" width: 80%;">
+      <option value="">Select Color</option>
+      <option value="lightgold">Light Gold</option>
+      <option value="lightblue">Light Blue</option>
+    </select>
+  </div>
+
+    </main>
+    <!-- Service worker script -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js').then(registration => {
+            console.log('Service worker registered:', registration);
+          }).catch(error => {
+            console.error('Service worker registration failed:', error);
+          });
+        });
+      }
+    </script>
+      <!-- Change background Image -->
+    <script>
+    
+
+      function changeBackground() {
+        const colorDropdown = document.getElementById("color-dropdown");
+        const selectedColor = colorDropdown.options[colorDropdown.selectedIndex].value;
+        //alert(selectedColor);
+        document.body.style.backgroundImage = "url(images/"+selectedColor+".jpeg)";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+      }
+
+     
+    </script>
+ 
+    </script>
+ </body>
+</html>
